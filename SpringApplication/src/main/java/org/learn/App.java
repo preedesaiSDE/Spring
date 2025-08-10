@@ -1,5 +1,6 @@
 package org.learn;
 
+import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
@@ -50,9 +51,14 @@ public class App
         sim.data();*/
 
         //dependency injection using component scan
-        ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
+        /*ApplicationContext applicationContext = new AnnotationConfigApplicationContext(AppConfig.class);
         App app = applicationContext.getBean(App.class);
-        app.useSim();
+        app.useSim();*/
+
+        //creating object in a spring container
+        BeanFactory beanFactory = new ClassPathXmlApplicationContext("beans.xml");
+        Student student = beanFactory.getBean("student", Student.class);
+        System.out.println(student);
 
     }
 }

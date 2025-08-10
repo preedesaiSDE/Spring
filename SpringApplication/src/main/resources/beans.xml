@@ -7,4 +7,9 @@
     <!-- Define the Jio bean -->
     <bean id="sim" class="org.learn.Airtel"></bean>
 
+    <bean id="student" class="org.learn.Student">
+        <constructor-arg name="name" value="John Doe"/>
+        <constructor-arg name="age" value="20"/>
+    </bean>
+
 </beans>
